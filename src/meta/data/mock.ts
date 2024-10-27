@@ -3,7 +3,7 @@ import { TListItem } from '../type/list-item-type'
 const mockData: TListItem[] = [
   {
     id: 'c1b1458e-6969-4c69-4e50-08da4143fbca',
-    title: 'Understanding the difference between grid-template and grid-auto <h1>grid</h1>',
+    title: 'Grid: Understanding the difference between grid-template and grid-auto <h1>grid</h1>',
     date: '2018-10-18T15:01:40.657027',
     description:
       '<h1>grid</h1> With all the new properties related to CSS Grid Layout, one of the distinctions that always confused me was the difference between the grid-template-* and grid-auto-* properties.'

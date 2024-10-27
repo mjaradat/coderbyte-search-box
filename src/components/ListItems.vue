@@ -26,12 +26,12 @@ const { query } = toRefs(props)
 const resultMsg = computed((): string => (data.value.length == 1 ? `<b>${data.value.length} post</b> was found.` : `<b>${data.value.length} posts</b> were found.`))
 
 const data = computed((): TListItem[] =>
-  query.value ? mockData.filter(item => item.title.toLowerCase().includes(query.value) || item.description.toLowerCase().includes(query.value.toLowerCase())) : mockData
+  query.value ? mockData.filter(item => item.title.toLowerCase().includes(query.value.toLowerCase()) || item.description.toLowerCase().includes(query.value.toLowerCase())) : mockData
 )
 
 const getHighlightedText = (item: any): string => {
   const q = sanitizeHTML(query.value)
   const text = sanitizeHTML(item)
-  return q ? text.replace(new RegExp(`${q}`, 'gi'), `<span class="bg-warning">${q}</span>`) : text
+  return q ? text.replace(new RegExp(`(?<!&[^;]*)${q}`, 'gi'), match => `<span class="bg-warning">${match}</span>`) : text
 }
 </script>

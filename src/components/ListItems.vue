@@ -1,17 +1,15 @@
 <template>
-  <div v-if="query">
-    <div v-if="data.length">
-      <h5 class="mb-4" v-html="resultMsg"></h5>
-      <div v-for="item in data" class="d-flex flex-column mb-3 pb-3 border-bottom" :key="item.id">
-        <h3 v-html="getHighlightedText(item.title)"></h3>
-        <div class="col-12 my-2">
-          <i>{{ useFormattedDate(item.date) }}</i>
-        </div>
-        <!-- <div v-html="getHighlightedText(item.description)"></div> -->
+  <div v-if="data.length">
+    <h5 class="mb-4" v-html="resultMsg"></h5>
+    <div v-for="item in data" class="d-flex flex-column mb-3 pb-3 border-bottom" :key="item.id">
+      <h3 v-html="getHighlightedText(item.title)"></h3>
+      <div class="col-12 my-2">
+        <i>{{ useFormattedDate(item.date) }}</i>
       </div>
+      <div v-html="getHighlightedText(item.description)"></div>
     </div>
-    <div v-else>No result found</div>
   </div>
+  <div v-else>No result found</div>
 </template>
 
 <script setup lang="ts">
